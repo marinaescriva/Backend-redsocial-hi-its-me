@@ -17,10 +17,13 @@ $ npm dotenv -E
 ```
 
 ##### add type module to do import and export (avoid use "requires")
-``` package.json
+
+(on package.json) 
+write before scripts:
+```
 {
     "type":"module"
-};
+}
 ```
 
 ``` bash
