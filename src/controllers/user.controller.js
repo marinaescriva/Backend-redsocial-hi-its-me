@@ -35,7 +35,7 @@ export const getUserProfile = async (req, res) => {
       //    throw new Error ("Profile name is missing in the request body")
       // }
 
-      // console.log(profileName)
+      // console.log(profileName)  // i deleted this because parameter name in model is not required so users are whatever.
 
       const userId = req.tokenData.userId
 
