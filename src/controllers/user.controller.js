@@ -1,6 +1,7 @@
 
 import User from "../models/User.js";
 
+
 export const getUsers = async (req, res) => {
    try {
 
@@ -27,33 +28,31 @@ export const getUsers = async (req, res) => {
 export const getUserProfile = async (req, res) => {
    try {
 
-      const profileEmail = req.tokenData.
-      // const userId = req.tokenData.userId;
-      // const findUserById = await User.findOne(
-      //    {
-      //       _id: userId
-      //    }
-      // )
+      const profileName = req.body.name
+      console.log(profileName)
 
-      // if (!findUserById) {
-      //    return res.status(500).json(
-      //       {
-      //          success: false,
-      //          message: "User not found"
-      //       }
-      //    )
-      // }
+      if(!profileName){
+         throw new Error ("Profile name is missing in the request body")
+      }
 
-      // if (userId === req.params.User._id)
+      console.log(profileName)
 
-      //    console.log(userId, "1")
-      // console.log(req.params._id, "2")
+      const userId = req.tokenData.userId
+      console.log(userId)
 
+      const user = await User
+      .findById(userId)
+      .select ('-_id , -password -createdAt - updatedAt')
+
+      if(!user){
+         throw new Error ("Any user founded")
+      }
+      
       res.status(201).json(
          {
             success: true,
-            message: `User ${user.name} retrieved succesfully`,
-            data: findUser
+            message: `User ${profileName} retrieved succesfully`,
+            data: user
          }
       )
    } catch (error) {
@@ -66,4 +65,9 @@ export const getUserProfile = async (req, res) => {
       )
    }
 }
+
+export const  updateUserProfile = async (req, res) => {
+
+}
+
 

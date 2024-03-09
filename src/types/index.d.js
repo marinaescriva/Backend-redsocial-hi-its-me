@@ -1,4 +1,4 @@
-export type TokenData = {
+export tokenData = {
     userId: number;
     name: string;
 };

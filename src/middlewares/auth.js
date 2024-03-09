@@ -1,31 +1,27 @@
-import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken"
 
-export const auth = (req, res, next) => {
+export const auth = async (req, res, next) => {
+
+    const token = req.headers.authorization?.split(" ")[1]
     try {
-        const token = req.headers.authorization?.split(" ")[1];
-        if (!token) {
-            return res.status(401).json(
-                {
-                    success: false,
-                    message: "unauthorized"
-                }
-            )
-        };
 
-        const decoded = jwt.verify(
-            token,
-            process.env.JWT_SECRET
-        )
+        if(!token){
+            return res.status(401).json({
+                success: false,
+                message: "Token not found / Unauthorized"
+            })
+        }
 
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
         req.tokenData = decoded
-        next();
 
+        next()
     } catch (error) {
-        return res.status(500).json(
-            {
-                success: false,
-                message: "token is invalid"
-            })
+        return res.status(500).json({
+            success: false,
+            message: "Token can't be validated or not found",
+            error: error.message
+        })
     }
-};
+}

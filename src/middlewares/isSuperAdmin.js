@@ -1,28 +1,23 @@
 
-
-export const isSuperAdmin = (req, res, next) => {
-    console.log(tokenData , "esto que es")
+export const isSuperAdmin = async (req, res, next) => {
     try {
-        console.log(req.tokenData.name)
-        if(req.tokenData.name !== "super_admin") {
-            return res.status(401).json(
-                {
-                    success: false,
-                    message: "UNAUTHORIZED"
-                }
-            )
+
+        if (req.tokenData.roleName !== "super_admin") {
+            return res.status(401).json({
+                success: false,
+                message: "Unauthorized"
+            })
         }
 
-        console.log(tokenData)
-        next();
-        
+        next()
     } catch (error) {
-        console.log(error.message)
-        res.status(500).json(
-            {
-                success: false,
-                message: "you dont have permisions"
-            }
-        )
+        
+        res.status(500).json({
+            success: false,
+            message: "Token can't be validated or not found",
+            error: error.message
+        })
     }
-}
+};
+
+export default isSuperAdmin;

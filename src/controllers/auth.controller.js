@@ -2,6 +2,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import "dotenv/config.js";
 
 
 export const register = async(req, res) => {  //no se tipa request ni response porq es javascript!
