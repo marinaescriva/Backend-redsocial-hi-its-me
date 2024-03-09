@@ -32,3 +32,7 @@ npm i mongoose
 
 
 
+## Solved
+ 
+- I tried to add "name" parameter in body of users. But this hasnt control if name is different because in model is not required..
+

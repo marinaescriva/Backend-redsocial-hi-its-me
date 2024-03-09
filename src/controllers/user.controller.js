@@ -28,30 +28,28 @@ export const getUsers = async (req, res) => {
 export const getUserProfile = async (req, res) => {
    try {
 
-      const profileName = req.body.name
-      console.log(profileName)
+      // const profileName = req.body.name
+      // console.log(profileName)
 
-      if(!profileName){
-         throw new Error ("Profile name is missing in the request body")
-      }
+      // if(!profileName){
+      //    throw new Error ("Profile name is missing in the request body")
+      // }
 
-      console.log(profileName)
+      // console.log(profileName)
 
       const userId = req.tokenData.userId
-      console.log(userId)
 
       const user = await User
       .findById(userId)
-      .select ('-_id , -password -createdAt - updatedAt')
 
       if(!user){
          throw new Error ("Any user founded")
       }
-      
+   
       res.status(201).json(
          {
             success: true,
-            message: `User ${profileName} retrieved succesfully`,
+            message: `User ${User.name} retrieved succesfully`,
             data: user
          }
       )
