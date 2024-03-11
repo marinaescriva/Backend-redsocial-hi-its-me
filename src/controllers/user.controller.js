@@ -28,28 +28,19 @@ export const getUsers = async (req, res) => {
 export const getUserProfile = async (req, res) => {
    try {
 
-      // const profileName = req.body.name
-      // console.log(profileName)
-
-      // if(!profileName){
-      //    throw new Error ("Profile name is missing in the request body")
-      // }
-
-      // console.log(profileName)  // i deleted this because parameter name in model is not required so users are whatever.
-
       const userId = req.tokenData.userId
 
       const user = await User
-      .findById(userId)
+         .findById(userId)
 
-      if(!user){
-         throw new Error ("Any user founded")
+      if (!user) {
+         throw new Error("Any user founded")
       }
-   
+
       res.status(201).json(
          {
             success: true,
-            message: `User ${User.name} retrieved succesfully`,
+            message: "User retrieved succesfully",
             data: user
          }
       )
@@ -64,8 +55,59 @@ export const getUserProfile = async (req, res) => {
    }
 }
 
-export const  updateUserProfile = async (req, res) => {
+export const updateUserProfile = async (req, res) => {
 
+   try {
+
+      const userId = req.tokenData.userId;
+      const email = req.body.email;
+
+
+      //validar datos
+      const user = await User.findOne( //promesa que busca el id del user, busca si existe el resgistro 
+         {
+            _id: userId
+         },
+      )
+
+      console.log(userId)
+
+      if (!user) {
+         return res.status(404).json({
+            success: false,
+            message: "user not found",
+            error: error.message
+         })
+      }
+
+      const userUpdated = await User.findOneAndUpdate(
+         {
+            _id: userId
+
+         },
+         {
+            email: email
+         },
+         {
+            new: true
+         }
+      );
+
+
+      res.status(200).json({
+         success: true,
+         message: "user is updated",
+         data: userUpdated
+      })
+
+
+   } catch (error) {
+      res.status(500).json({
+         success: false,
+         message: "user cant be Updated",
+         error: error.message
+      })
+
+   }
 }
-
 
