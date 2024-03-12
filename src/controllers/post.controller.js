@@ -16,7 +16,7 @@ export const createPost = async (req, res) => {
         const nick = req.tokenData.userId
         const text = req.body.text
         const title = req.body.title
-        
+
 
         if (!text) {
             return res.status(400).json({
@@ -49,9 +49,39 @@ export const createPost = async (req, res) => {
     }
 }
 
-// export const deletePost = async (req, res) => {
+export const deletePost = async (req, res) => {
+    try {
+        const postId = parseInt(req.params.id);
+        const userId = req.tokenData.userId;
 
-// }
+        const findPost = await Post
+
+            .findById(
+                {
+                    nick: userId
+                }
+            )
+
+        if (!findPost) {
+            Post.delete(
+                { _id: postId }
+            )
+        }
+
+        res.status(200).json({
+            "success": true,
+            "message": "Post deleted successfuly"
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Post was not updated",
+            error: error
+        })
+    }
+
+}
 
 
 // export const updatePost = async (req, res) => {

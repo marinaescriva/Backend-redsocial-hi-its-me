@@ -99,7 +99,8 @@ export const login = async (req, res) => {
         if (!isValidPassword) {
             return res.status(400).json({
                 success: false,
-                message: "Email or password invalid"
+                message: "Email or password invalid",
+                error: error.message
             })
         }
 
@@ -118,7 +119,7 @@ export const login = async (req, res) => {
         res.status(200).json({
         
             success: true,
-            message: `User ${user.name} logged succesfully`,
+            message: `User logged succesfully`,
             token: token , 
            
             
