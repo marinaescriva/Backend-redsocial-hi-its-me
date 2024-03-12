@@ -93,9 +93,57 @@ export const deletePost = async (req, res) => {
 }
 
 
-// export const updatePost = async (req, res) => {
+export const updatePost = async (req, res) => {
 
-// }
+    try {
+        const postId = req.params.id;
+        const userId = req.tokenData.userId;
+        const newTitle = req.body.title;
+      
+        const findPost = await Post
+
+            .findOne(
+                {
+                    _id: postId,
+                    nick: userId,
+
+                }
+            )
+            console.log(findPost)
+
+        if (!findPost) {
+            res.status(400).json(
+                {
+                    success: false,
+                    message: "cant find a post"
+                }
+            )
+        }
+
+        await Post.findOneAndUpdate(
+            {   _id: postId,
+                nick: userId,
+            },
+            {
+                title: newTitle
+            }
+        )
+        res.status(200).json({
+            success: true,
+            message: "Post update successfuly"
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Post was not deleted",
+            error: error.message
+        })
+    }
+
+
+
+}
 
 
 // export const getMyOwnPost = async (req, res) => {

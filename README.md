@@ -121,9 +121,29 @@ GET http://localhost:4000/api/users/profile
 }
 ```
 
+##### Delete a post
+DELETE http://localhost:4000/api/posts/65f08bf319ed20287fd19c56
 
+- Delete a post by id.
+- It is only allowed for the owner of the post.
+- Add User's token on Auth/Bearer.
+
+##### Update a post
+PUT http://localhost:4000/api/posts/65f08bf319ed20287fd19c55
+
+- Update the title of a post by id.
+- It is only allowed for the owner of the post.
+- Add User's token on Auth/Bearer.
+
+```sh
+//write this on body
+{
+  "title": "feliz navidad"
+}
+```
 
 
 ## To add / Bugs
  
 - I tried to add "name" parameter in body of users. But this hasnt control if name is different because in model is not required..
+- Added 3 posts and 3 users default for some functionalities.
