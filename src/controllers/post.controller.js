@@ -146,9 +146,39 @@ export const updatePost = async (req, res) => {
 }
 
 
-// export const getMyOwnPost = async (req, res) => {
+export const getMyOwnPost = async (req, res) => {
+    try {
 
-// }
+        const userId = req.tokenData.userId
+        const ownPosts = await Post.find(
+            {
+                nick: userId
+            }
+            )
+            console.log(ownPosts)
+  
+        if (ownPosts.length <= 0) {
+           throw new Error("Any post founded")
+        }
+  
+        res.status(200).json(
+           {
+              success: true,
+              message: "Posts retrieved succesfully",
+              data: ownPosts
+             
+           }
+        )
+     } catch (error) {
+        res.status(500).json(
+           {
+              success: false,
+              message: "ERROR",
+              error: error.message
+           }
+        )
+     }
+}
 
 
 // export const getAllPost = async (req, res) => {

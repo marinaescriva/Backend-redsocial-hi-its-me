@@ -141,7 +141,10 @@ PUT http://localhost:4000/api/posts/65f08bf319ed20287fd19c55
   "title": "feliz navidad"
 }
 ```
+##### Get all your own posts
+GET http://localhost:4000/api/posts/own
 
+- Add User's token on Auth/Bearer.
 
 ## To add / Bugs
  
