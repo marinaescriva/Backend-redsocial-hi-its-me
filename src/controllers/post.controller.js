@@ -51,33 +51,42 @@ export const createPost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
     try {
-        const postId = parseInt(req.params.id);
+        const postId = req.params.id;
         const userId = req.tokenData.userId;
-
+      
         const findPost = await Post
 
-            .findById(
+            .findOne(
                 {
+                    _id: postId,
                     nick: userId
+
                 }
             )
+            console.log(findPost)
 
         if (!findPost) {
-            Post.delete(
-                { _id: postId }
+            res.status(400).json(
+                {
+                    success: false,
+                    message: "cant find a post"
+                }
             )
         }
 
+        await Post.deleteOne(
+            { _id: postId }
+        )
         res.status(200).json({
-            "success": true,
-            "message": "Post deleted successfuly"
+            success: true,
+            message: "Post deleted successfuly"
         })
 
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Post was not updated",
-            error: error
+            message: "Post was not deleted",
+            error: error.message
         })
     }
 
