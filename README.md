@@ -146,6 +146,11 @@ GET http://localhost:4000/api/posts/own
 
 - Add User's token on Auth/Bearer.
 
+
+GET http://localhost:4000/api/posts
+
+- Add a token in Auth/Bearer because the watcher should be logged.
+
 ## To add / Bugs
  
 - I tried to add "name" parameter in body of users. But this hasnt control if name is different because in model is not required..

@@ -109,7 +109,7 @@ export const updatePost = async (req, res) => {
 
                 }
             )
-        console.log(findPost)
+        
 
         if (!findPost) {
             res.status(400).json(
@@ -156,7 +156,7 @@ export const getMyOwnPost = async (req, res) => {
                 nick: userId
             }
         )
-        console.log(ownPosts)
+        
 
         if (ownPosts.length <= 0) {
             throw new Error("Any post founded")
@@ -217,6 +217,46 @@ export const getAllPost = async (req, res) => {
 
 }
 
-// export const getPostById = async (req, res) => {
+export const getPostById = async (req, res) => {
 
-// }
+    try {
+
+         // tiene   que mostrar los post que le pertenecen por id?
+         // tiene que mostrar slo el que pones por id? 
+
+        const postId = req.params._id
+        const userId = req.tokenData.userId;
+
+        const findPost = await Post
+
+            .find(
+                {
+                    _id: postId  //en teoria debe mostrar cualquier post con su id, aunq no sea suyo no?
+
+                }
+            )
+        
+
+        if (!findPost) {
+            res.status(400).json(
+                {
+                    success: false,
+                    message: "Id incorrect or any post have this id"
+                }
+            )
+        }
+        
+        res.status(200).json({
+            success: true,
+            message: "Post retrieved successfuly",
+            data: postId
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Any post found",
+            error: error.message
+        })
+
+}}
