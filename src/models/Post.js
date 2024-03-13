@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 
 export const PostSchema = new Schema(
     {
-        title:{
+        title: {
             type: String,
             required: true
         },
@@ -11,6 +11,17 @@ export const PostSchema = new Schema(
             type: String,
             required: true
         },
+        like: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        likes:[
+            {
+                type: Schema.Types.ObjectId,
+                ref:'User'
+            }
+        ],
         nick: [
             {
                 type: Schema.Types.ObjectId,

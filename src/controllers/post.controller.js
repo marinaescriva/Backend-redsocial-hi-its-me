@@ -254,3 +254,73 @@ export const getPostById = async (req, res) => {
 
     }
 }
+
+export const giveLikes = async (req, res) => {
+
+    try {
+
+        const postId = req.params.id; //the post would be liked or unliked
+        const userId = req.tokenData.userId; //logged user
+        const toLike = req.body.like; // action
+
+        const findPost = await Post.findById(
+            {
+                _id: postId
+            }
+        )
+
+        if (!findPost || findPost.length === 0) {
+            return res.status(400).json(
+                {
+                    success: false,
+                    message: "Id incorrect or any post have this id",
+                    error: error.message
+                }
+            )
+        }
+
+        const update = {};
+
+        if (toLike !== undefined) { 
+            if (toLike && !findPost.likes.includes(userId)) {
+
+                update.$push = { likes: userId }, //push userId in likes
+                update.like = true;
+            
+            } else {
+                update.$pull = { likes: userId } //pull userId in likes 
+                update.like = false;
+            }
+        }
+
+        const updatedPost = await Post.findByIdAndUpdate(
+            {
+                _id: postId,
+            },
+            update,
+            {
+                new: true
+            }
+        )
+
+        if (!updatedPost) {
+            return res.status(404).json({
+                success: false,
+                message: `Can't update post with id: ${postId}`
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Post like status updated successfully",
+            data: updatedPost
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+
+}
