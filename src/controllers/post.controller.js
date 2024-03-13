@@ -1,13 +1,5 @@
 import Post from "../models/Post.js";
-import User from "../models/User.js";
 
-
-// router.post('/', createPost);
-// router.delete('/:id', deletePost);
-// router.put('/', updatePost);
-// router.get('/own', getMyOwnPost);
-// router.get('/', getAllPost);
-// router.get('/:id', getPostById);
 
 
 export const createPost = async (req, res) => {

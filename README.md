@@ -122,14 +122,14 @@ GET http://localhost:4000/api/users/profile
 ```
 
 ##### Delete a post
-DELETE http://localhost:4000/api/posts/65f08bf319ed20287fd19c56
+DELETE http://localhost:4000/api/posts/:id
 
 - Delete a post by id.
 - It is only allowed for the owner of the post.
 - Add User's token on Auth/Bearer.
 
 ##### Update a post
-PUT http://localhost:4000/api/posts/65f08bf319ed20287fd19c55
+PUT http://localhost:4000/api/posts/:id
 
 - Update the title of a post by id.
 - It is only allowed for the owner of the post.
@@ -141,15 +141,42 @@ PUT http://localhost:4000/api/posts/65f08bf319ed20287fd19c55
   "title": "feliz navidad"
 }
 ```
+</br>
+
 ##### Get all your own posts
 GET http://localhost:4000/api/posts/own
 
 - Add User's token on Auth/Bearer.
+</br>
 
-
+##### Get all posts view feed
 GET http://localhost:4000/api/posts
 
 - Add a token in Auth/Bearer because the watcher should be logged.
+</br>
+
+##### Get post by Id
+GET http://localhost:4000/api/posts/:id
+
+- Add a token in Auth/Bearer because the watcher should be logged.
+- Add postId in the request to find it.
+</br>
+
+##### Do Like and Unlike a post by Id
+PUT http://localhost:4000/api/posts/like/:id
+
+- Add a token in Auth/Bearer because the watcher should be logged.
+- Add the like by body writing this:
+
+```sh
+{
+  "like": true
+}
+
+```
+*bug* This only works if your write true because the "botton: like" should be "pressedON" to allow the likes acount change true/false and show whose liked the post.
+
+
 
 ## To add / Bugs
  
