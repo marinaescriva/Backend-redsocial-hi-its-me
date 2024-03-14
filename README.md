@@ -11,6 +11,27 @@ This app is a social tool modeled after Instagram, allowing users to post text u
 [Functionalities](#hammer-functionalities)
 
 
+### Tech
+
+- ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+- ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white
+)
+- ![Node.js](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
+)
+- ![Express.js](https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white
+)
+
+### Data Base
+
+This app have users and posts related each other.
+
+![DataBase](image.png)
+
+### Objective 📌
+
+The application is a social networking platform focused on facilitating post sharing and interaction among users. Users have the ability to create posts, edit their own posts, and engage with posts created by other users by liking or disliking them. Additionally, users can explore a feed of posts from other users, providing a space for communication and expression within the community. 
+
 ### Deploy 🚀
 
 https://hi-its-me-dev-sjmz.2.sg-1.fl0.io
@@ -195,7 +216,31 @@ PUT https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts/like/:id
 
 </details>
 
-## To add / Bugs
+### To add / Bugs
  
 - I tried to add "name" parameter in body of users. But this hasnt control if name is different because in model is not required..
 - Added 3 posts and 3 users default for some functionalities.
+
+### Agreements
+
+Thanks all for helping and support my progress in this proyect.
+
+<a href="https://github.com/MartaGBayona">Marta
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="50" height="50">
+</a>
+
+<a href="https://github.com/ariusvi">Ana
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="50" height="50">
+
+<a href="https://github.com/Eryhnar">Pedro
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="50" height="50">
+
+ <a href="https://github.com/Ferelbue">Fernando
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="50" height="50">
+
+<a href="https://github.com/CariblaGIT">Carlos
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="50" height="50">
+
+<a href="https://github.com/FRR95">Fran
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="50" height="50">
+
