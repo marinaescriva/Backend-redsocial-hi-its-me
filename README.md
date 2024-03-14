@@ -13,6 +13,8 @@ This app is a social tool modeled after Instagram, allowing users to post text u
 
 ### Deploy 🚀
 
+https://hi-its-me-dev-sjmz.2.sg-1.fl0.io
+
 
 ### 🔧 Installation 
 
@@ -68,7 +70,7 @@ npm i mongoose
 - `Post endpoints`
 
 ##### Make a register
-POST http://localhost:4000/api/auth/register 
+POST https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/auth/register 
 
 <details>
 - Make a register of one user ( default role is "user")
@@ -85,7 +87,7 @@ POST http://localhost:4000/api/auth/register
 </br>
 
 ##### Login of a user
-POST http://localhost:4000/api/auth/login
+POST https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/auth/login
 
 <details>
 - Logged User have a token
@@ -100,7 +102,7 @@ POST http://localhost:4000/api/auth/login
 </br>
 
 ##### Retrieve all users 
-GET http://localhost:4000/api/users/
+GET https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/users/
 
 <details>
 - Only for who had "super-admin" role.
@@ -110,7 +112,7 @@ GET http://localhost:4000/api/users/
 </br>
 
 ##### Retrieve user profile
-GET http://localhost:4000/api/users/profile
+GET https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/users/profile
 
 <details>
 - For all are logged users.
@@ -128,7 +130,7 @@ GET http://localhost:4000/api/users/profile
 </details>
 
 ##### Delete a post
-DELETE http://localhost:4000/api/posts/:id
+DELETE https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts/:id
 
 <details>
 
@@ -138,7 +140,7 @@ DELETE http://localhost:4000/api/posts/:id
 </details>
 
 ##### Update a post
-PUT http://localhost:4000/api/posts/:id
+PUT https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts/:id
 
 <details>
 - Update the title of a post by id.
@@ -156,7 +158,7 @@ PUT http://localhost:4000/api/posts/:id
 </br>
 
 ##### Get all your own posts
-GET http://localhost:4000/api/posts/own
+GET https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts/own
 
 <details>
 
@@ -165,7 +167,7 @@ GET http://localhost:4000/api/posts/own
 </br>
 
 ##### Get all posts view feed
-GET http://localhost:4000/api/posts
+GET https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts
 
 <details>
 
@@ -174,7 +176,7 @@ GET http://localhost:4000/api/posts
 </br>
 
 ##### Get post by Id
-GET http://localhost:4000/api/posts/:id
+GET https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts/:id
 
 <details>
 
@@ -184,7 +186,7 @@ GET http://localhost:4000/api/posts/:id
 </br>
 
 ##### Do Like and Unlike a post by Id
-PUT http://localhost:4000/api/posts/like/:id
+PUT https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/posts/like/:id
 
 <details>
 - Add a token in Auth/Bearer because the watcher should be logged.
