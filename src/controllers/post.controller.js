@@ -253,15 +253,15 @@ export const giveLikes = async (req, res) => {
 
         const postId = req.params.id; //the post would be liked or unliked
         const userId = req.tokenData.userId; //logged user
-        const toLike = req.body.like; // action
 
-        const findPost = await Post.findById(
+
+        const findPost = await Post.findOne(
             {
                 _id: postId
             }
         )
 
-        if (!findPost || findPost.length === 0) {
+        if (!findPost) {
             return res.status(400).json(
                 {
                     success: false,
@@ -271,36 +271,20 @@ export const giveLikes = async (req, res) => {
             )
         }
 
-        const update = {};
+        const postLiked = findPost.likes.includes(userId)
 
-        if (toLike !== undefined) { 
-            if (toLike && !findPost.likes.includes(userId)) {
+        if (postLiked) {
 
-                update.$push = { likes: userId }, //push userId in likes
-                update.like = true;
-            
-            } else {
-                update.$pull = { likes: userId } //pull userId in likes 
-                update.like = false;
-            }
-        }
+            findPost.likes.pull(userId) //pull userId bc is already there
 
-        const updatedPost = await Post.findByIdAndUpdate(
-            {
-                _id: postId,
-            },
-            update,
-            {
-                new: true
-            }
-        )
 
-        if (!updatedPost) {
-            return res.status(404).json({
-                success: false,
-                message: `Can't update post with id: ${postId}`
-            });
-        }
+        } else {
+
+            findPost.likes.push(userId)  //push userId in likes 
+
+        } 
+
+        const updatedPost = await findPost.save()
 
         res.status(200).json({
             success: true,

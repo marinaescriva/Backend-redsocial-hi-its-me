@@ -11,11 +11,11 @@ export const PostSchema = new Schema(
             type: String,
             required: true
         },
-        like: {
-            type: Boolean,
-            required: false,
-            default: false
-        },
+        // like: {
+        //     type: Boolean,
+        //     required: false,
+        //     default: false
+        // },
         likes:[
             {
                 type: Schema.Types.ObjectId,
