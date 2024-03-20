@@ -90,6 +90,66 @@ npm i mongoose
 - `User endpoints`
 - `Post endpoints`
 
+#### Predefined users and posts by seeder
+
+``` sh
+
+user/admin/superadmin
+ {
+            _id:"65f08bf319ed20287fd19c3a",
+            name: "super_admin",
+            email: "super_admin@super_admin.com",
+            password: await bcrypt.hash("123456" , 8 ),
+            role: "super_admin"
+
+        },
+        {
+            _id: "65f08bf319ed20287fd19c3b",
+            name: "admin",
+            email: "admin@admin.com",
+            password: await bcrypt.hash("123456" , 8 ),
+            role: "admin"
+
+        },
+        {
+            _id:"65f08bf319ed20287fd19c3c",
+            name: "user",
+            email: "user@user.com",
+            password: await bcrypt.hash("123456" , 8 ),
+            role: "user"
+
+        }
+
+posts
+
+ {
+                _id: "65f08bf319ed20287fd19c56",
+                title: "el tituloooo",
+                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus. Cometes…",
+                nick: "65f08bf319ed20287fd19c3c"
+    
+            },
+            {
+                _id: "65f08bf319ed20287fd19c55",
+                title: "el tituloooo2",
+                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus. Cometes…",
+                nick: "65f08bf319ed20287fd19c3c"
+                
+    
+            },
+            {
+                _id: "65f08bf319ed20287fd19c54",
+                title: "el tituloooo3",
+                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus. Cometes…",
+                nick: "65f08bf319ed20287fd19c3c"
+               
+    
+            }
+
+```
+
+
+
 ##### Make a register
 POST https://hi-its-me-dev-sjmz.2.sg-1.fl0.io/api/auth/register 
 
