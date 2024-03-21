@@ -5,7 +5,7 @@ import User from "../models/User.js";
 export const getUsers = async (req, res) => {
    try {
 
-      const findUsers = await User.find()
+      const findUsers = await User.find().select('-password')
 
       res.status(201).json(
          {
@@ -32,6 +32,7 @@ export const getUserProfile = async (req, res) => {
 
       const user = await User
          .findById(userId)
+         .select('-password')
 
       if (!user) {
          throw new Error("Any user founded")
@@ -64,13 +65,13 @@ export const updateUserProfile = async (req, res) => {
 
 
       //validar datos
-      const user = await User.findOne( //promesa que busca el id del user, busca si existe el resgistro 
+      const user = await User.findOne(
          {
             _id: userId
          },
       )
 
-      console.log(userId)
+    
 
       if (!user) {
          return res.status(404).json({
@@ -91,7 +92,7 @@ export const updateUserProfile = async (req, res) => {
          {
             new: true
          }
-      );
+      ).select('-password');
 
 
       res.status(200).json({

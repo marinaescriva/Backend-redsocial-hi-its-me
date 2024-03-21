@@ -40,6 +40,26 @@ https://hi-its-me-dev-sjmz.2.sg-1.fl0.io
 ### 🔧 Installation 
 
 - Initial steps to run the proyect
+- Clone de repository
+- Install dependencies
+
+``` bash
+$ npm install
+```
+
+- Create a container in Docker with your credentials.
+- Create the .env file and define your personal credentials to run the project.
+- Run de seeder:
+
+``` bash
+$ npm run seed
+```
+
+- Initialize API
+
+``` bash
+$ npm run dev
+```
 
 ``` bash
 $ npm init --yes
