@@ -9,7 +9,7 @@ export const register = async (req, res) => {  //no se tipa request ni response 
 
 
     try {
-
+        const name = req.body.name
         const email = req.body.email
         const password = req.body.password
 
@@ -35,11 +35,13 @@ export const register = async (req, res) => {  //no se tipa request ni response 
         const passwordEncrypted = bcrypt.hashSync(password, 5);
 
         const newUser = await User.create({
+            name: name,
             email: email,
             password: passwordEncrypted
         });
 
         const newUserNoPassword = {
+            name: newUser.name,
             email: newUser.email,
             role: newUser.role,
             _id: newUser._id,
