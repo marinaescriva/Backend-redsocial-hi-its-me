@@ -96,7 +96,8 @@ export const login = async (req, res) => {
 
 
         if (!user) {
-            res.status(400).json({
+            
+            return res.status(400).json({
                 success: false,
                 message: "Email or password invalid"
             })
@@ -116,7 +117,8 @@ export const login = async (req, res) => {
             {
                 userId: user._id,
                 roleName: user.role,
-                email: user.email
+                email: user.email,
+                name: user.name
             },
             process.env.JWT_SECRET,
             {
