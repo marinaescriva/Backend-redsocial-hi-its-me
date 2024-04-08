@@ -11,6 +11,12 @@ export const PostSchema = new Schema(
             type: String,
             required: true
         },
+        
+        image: {
+            type: String,
+            required: false
+        },
+
         likes:[
             {
                 type: Schema.Types.ObjectId,
