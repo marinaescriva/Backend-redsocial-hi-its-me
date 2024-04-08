@@ -7,25 +7,25 @@ const seedPosts = async () => {
     const posts = [
             {
                 _id: "65f08bf319ed20287fd19c56",
-                title: "el tituloooo",
-                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus. Cometes…",
+                title: "Sanseviera cilindrica",
+                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus.",
                 nick: "65f08bf319ed20287fd19c3c",
                 image: faker.image.urlLoremFlickr({ category: 'nature' })
     
             },
             {
                 _id: "65f08bf319ed20287fd19c55",
-                title: "el tituloooo2",
-                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus. Cometes…",
-                nick: "65f08bf319ed20287fd19c3c",
+                title: "Syngonium pink",
+                text: "Conocido como punta de flecha, cinco dedos o Nephthytis; el Syngonium Podophyllum es miembro del género Syngonium y de la familia Araceae.",
+                nick: "65f08bf319ed20287fd19c3a",
                 image: faker.image.urlLoremFlickr({ category: 'nature' })
     
             },
             {
                 _id: "65f08bf319ed20287fd19c54",
-                title: "el tituloooo3",
-                text: "Conscendo addo venia ubi ciminatio utpote uredo auctor cursus. Cometes…",
-                nick: "65f08bf319ed20287fd19c3c",
+                title: "costilla de Adán",
+                text: "Esta planta de interior es sencilla de cuidar y queda muy bonita en tu salón..",
+                nick: "65f08bf319ed20287fd19c3b",
                 image: faker.image.urlLoremFlickr({ category: 'nature' })
                
     
