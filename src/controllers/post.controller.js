@@ -177,7 +177,7 @@ export const getMyOwnPost = async (req, res) => {
 export const getAllPost = async (req, res) => {
 
     try {
-        const findPosts = await Post.find()
+        const findPosts = await Post.find().populate({path:"nick", select:"name"})
 
         res.status(201).json(
             {

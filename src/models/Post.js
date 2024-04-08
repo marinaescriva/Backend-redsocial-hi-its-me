@@ -17,12 +17,12 @@ export const PostSchema = new Schema(
                 ref:'User'
             }
         ],
-        nick: [
+        nick: 
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
-        ]
+        
     },
     {
         timestamps: true,

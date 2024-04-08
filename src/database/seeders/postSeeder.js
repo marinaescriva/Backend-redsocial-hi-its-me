@@ -39,8 +39,8 @@ const seedPosts = async () => {
         const randomUser = Math.floor(Math.random() * users.length);
         const post = {
 
-            title: faker.lorem.lines({min:1, max:3}),
-            text: faker.lorem.text(),
+            title: faker.lorem.lines({min:1, max:2}),
+            text: faker.lorem.lines({min:2, max:3}),
             nick: users[randomUser]._id
     
         }
