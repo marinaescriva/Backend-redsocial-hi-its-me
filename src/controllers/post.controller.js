@@ -8,6 +8,7 @@ export const createPost = async (req, res) => {
         const nick = req.tokenData.userId
         const text = req.body.text
         const title = req.body.title
+        const image = req.body.image
 
 
         if (!text) {
@@ -21,7 +22,9 @@ export const createPost = async (req, res) => {
         const newPost = await Post.create({
             nick,
             text,
-            title
+            title,
+            image
+            
         })
 
         res.status(201).json({
