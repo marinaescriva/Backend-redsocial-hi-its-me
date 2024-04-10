@@ -55,7 +55,6 @@ export const deletePost = async (req, res) => {
                 {
                     _id: postId,
                     nick: userId
-
                 }
             )
         console.log(findPost)
