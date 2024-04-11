@@ -62,6 +62,7 @@ export const updateUserProfile = async (req, res) => {
 
       const userId = req.tokenData.userId;
       const email = req.body.email;
+      const name = req.body.name;
 
 
       //validar datos
@@ -71,7 +72,6 @@ export const updateUserProfile = async (req, res) => {
          },
       )
 
-    
 
       if (!user) {
          return res.status(404).json({
@@ -86,7 +86,9 @@ export const updateUserProfile = async (req, res) => {
             _id: userId
 
          },
+      
          {
+            name: name,
             email: email
          },
          {
