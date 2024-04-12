@@ -54,7 +54,7 @@ export const deletePost = async (req, res) => {
             .findOne(
                 {
                     _id: postId,
-                    nick: userId
+                    nick: userId 
                 }
             )
         console.log(findPost)
@@ -69,7 +69,8 @@ export const deletePost = async (req, res) => {
         }
 
         await Post.deleteOne(
-            { _id: postId }
+            { _id: postId
+        }
         )
         res.status(200).json({
             success: true,
